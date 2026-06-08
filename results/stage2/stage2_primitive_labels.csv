@@ -1,0 +1,9 @@
+code_id,label,n,share_valid,confidence,rationale
+0,stress,527,0.1754911754911755,high,"cash=0.187, q=0.813, risk_stress=0.474, recovery=0.462, turnover=0.0017, buy_allowed=0.146"
+1,baseline_hold,789,0.2627372627372627,high,"cash=0.178, q=0.822, risk_stress=0.428, recovery=0.538, turnover=0.0016, buy_allowed=0.134"
+2,risk_on,342,0.11388611388611389,high,"cash=0.151, q=0.849, risk_stress=0.451, recovery=0.504, turnover=0.0012, buy_allowed=0.041"
+3,cash_heavier+stress,248,0.08258408258408259,high,"cash=0.208, q=0.792, risk_stress=0.493, recovery=0.439, turnover=0.0018, buy_allowed=0.335"
+4,active_trading,347,0.11555111555111555,high,"cash=0.155, q=0.845, risk_stress=0.452, recovery=0.505, turnover=0.0060, buy_allowed=0.207"
+5,cash_heavier+active_trading,349,0.11621711621711622,high,"cash=0.209, q=0.791, risk_stress=0.458, recovery=0.476, turnover=0.0060, buy_allowed=0.195"
+6,recovery+topk_buy_open,343,0.11421911421911422,high,"cash=0.205, q=0.795, risk_stress=0.414, recovery=0.553, turnover=0.0032, buy_allowed=0.440"
+7,risk_on+recovery+topk_buy_open,58,0.019314019314019316,medium,"cash=0.118, q=0.882, risk_stress=0.321, recovery=0.691, turnover=0.0040, buy_allowed=0.793"
