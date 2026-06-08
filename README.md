@@ -1,133 +1,43 @@
-# Interpretable CHRL
+# Stage 1: Primitive Discovery
 
-Self-supervised strategy discovery and hidden-state intervention for a constrained hierarchical reinforcement-learning trading policy.
+Self-supervised discovery of strategy primitives in the frozen CHRL policy hidden state.
 
-The policy used here is the **CHRL model** produced in [`Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning`](https://github.com/Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning). This repository focuses on the interpretation layer: discovering strategy primitives, mapping them to market regimes, and testing whether primitive-level interventions can improve a frozen out-of-sample rollout.
+## Result
 
-## Abstract
+![Stage 1 codebook](docs/assets/stage1/stage1_codebook_usage_returns.png)
 
-Most RL trading policies are hard to explain because the actual decision is buried inside hidden states. I treated the policy hidden state as a behavioral space, discovered recurring strategy primitives with self-supervised clustering, and then tested whether those primitives are merely descriptive or actually controllable.
+| Metric | Value |
+|---|---:|
+| K | 8 |
+| Utilization | 1.000 |
+| Perplexity | 6.914 |
+| Median run length | 18.0 trading days |
+| Cross-fold NMI | 0.634 |
+| Recon / variance | 0.803 |
 
-The strongest result is that primitive-aware hidden-state editing can improve a frozen 2022-2023 rollout without retraining the PPO model. The best control-adjusted intervention was:
+## Primitive Summary
 
-```text
-Replace code 3 with the best primitive for the current market context
-Control-adjusted final return lift: +0.302 percentage points
-Control-adjusted Sharpe lift:       +0.030
-```
-
-The result is intentionally reported with random-direction controls. The goal is not to claim magic latent steering, but to separate real primitive effects from the fact that any hidden-state edit can sometimes move the portfolio.
-
-## Current Results
-
-![Stage 7 counterfactual results](docs/assets/stage7_contextual/stage7a_stage7b_counterfactual_results.png)
-
-| Candidate | Idea | Raw final return lift | Control-adjusted lift | Sharpe lift |
-|---|---:|---:|---:|---:|
-| `stage7a_replace_code3_to_context_best` | Replace a stress-like primitive with the train-best primitive for the current context | +0.421 pp | **+0.302 pp** | +0.039 |
-| `stage7a_replace_code3_to_global_code1` | Replace code 3 with the globally strong baseline-hold primitive | +0.392 pp | +0.273 pp | +0.037 |
-| `stage7b_promote_code4_in_own_context` | Promote active-trading behavior only in its own context | **+0.540 pp** | +0.263 pp | **+0.049** |
-| `stage7b_promote_code5_in_own_context` | Promote group-rotation behavior in its own context | +0.355 pp | +0.123 pp | +0.034 |
-
-Key interpretation:
-
-- Code 3 appears to be replaceable in stress-like frozen-test windows.
-- Code 4 is not simply a "bad primitive". It can help when promoted in the right context.
-- Context-aware replacement beats naive suppression as an interpretation-and-control mechanism.
-- Random controls still explain part of the lift, so the causal claim is deliberately conservative.
-
-## Best Primitive by Market Context
-
-The context map is fitted on train rows only, then evaluated on the frozen 2022-2023 rollout.
-
-| Market context | Selected primitive | Interpretation |
-|---|---:|---|
-| `bull_trend` | code 2 | momentum / risk-on behavior |
-| `calm_hold` | code 1 | baseline holding behavior |
-| `choppy_rotation` | code 1 | stable hold beats noisy rotation in train scoring |
-| `recovery` | code 1 | baseline hold was the safest train winner |
-| `stress` | code 7 | risk-on recovery / top-k reopening behavior |
-
-### Bull Trend
-
-![Bull trend primitive scores](docs/assets/stage7_contextual/stage7_context_bull_trend_primitive_scores.png)
-
-### Calm Hold
-
-![Calm hold primitive scores](docs/assets/stage7_contextual/stage7_context_calm_hold_primitive_scores.png)
-
-### Choppy Rotation
-
-![Choppy rotation primitive scores](docs/assets/stage7_contextual/stage7_context_choppy_rotation_primitive_scores.png)
-
-### Recovery
-
-![Recovery primitive scores](docs/assets/stage7_contextual/stage7_context_recovery_primitive_scores.png)
-
-### Stress
-
-![Stress primitive scores](docs/assets/stage7_contextual/stage7_context_stress_primitive_scores.png)
-
-## Method
-
-```mermaid
-flowchart LR
-    A["Frozen CHRL rollout"] --> B["Policy hidden states"]
-    B --> C["Primitive discovery"]
-    C --> D["Behavioral labels from portfolio logs"]
-    D --> E["Market-context map"]
-    E --> F["Primitive replacement / promotion"]
-    F --> G["Frozen counterfactual env rollout"]
-    G --> H["Return, Sharpe, drawdown, controls"]
-```
-
-The current Stage 7 experiment has two intervention families plus matched controls:
-
-| Family | Question | How the intervention is triggered | Example | Matched control |
-|---|---|---|---|---|
-| Stage 7a: replacement | Should a source primitive be moved toward a better primitive? | Trigger only when the frozen policy naturally enters the source primitive | `code3 -> context-best` | Same trigger schedule, random hidden direction |
-| Stage 7b: promotion | Should a useful primitive be strengthened in the market context where it belongs? | Trigger when the current market context matches the primitive's train-dominant context | `promote code4 in own context` | Same context schedule, random hidden direction |
-| Stage 7b: context-best promotion | Should the train-best primitive for the current regime be promoted directly? | Trigger when the current primitive differs from the train-best primitive for that context | `promote context-best` | Same context-best schedule, random hidden direction |
-
-All Stage 7 candidates are evaluated through the real frozen environment step, not by estimating returns from logs.
+| code | n | freq | mean_return | mean_vix | mean_regime_p1 |
+| --- | --- | --- | --- | --- | --- |
+| c0 risk-off | 527 | 0.1755 | -0.0001 | -0.1699 | 0.6406 |
+| c1 baseline | 789 | 0.2627 | 0.0009 | -0.6009 | 0.8189 |
+| c2 momentum | 342 | 0.1139 | 0.0007 | -0.9121 | 0.8307 |
+| c3 cash-stress | 248 | 0.0826 | -0.0000 | 1.6249 | -1.2429 |
+| c4 active trading | 347 | 0.1156 | 0.0006 | 0.1263 | -1.1667 |
+| c5 rotation | 349 | 0.1162 | 0.0006 | 0.5922 | -1.2156 |
+| c6 recovery | 343 | 0.1142 | 0.0004 | 0.4133 | -0.9896 |
+| c7 risk-on recovery | 58 | 0.0193 | 0.0034 | 2.7624 | -1.2485 |
 
 ## Evidence Files
 
-The repository keeps compact evidence only. The full `stage7_counterfactual_daily.csv` file is about 200 MB and is intentionally excluded; it can be regenerated from the source project, but it is not needed for this resume-facing evidence package.
+- `results/stage1/code_summary.csv`
+- `results/stage1/stage1_metrics_selected_k.csv`
+- `results/stage1/stage1_metrics.csv`
+- `results/stage1/train_codes.parquet`
 
-| File | Purpose |
-|---|---|
-| [`results/stage7/stage7_counterfactual_summary.csv`](results/stage7/stage7_counterfactual_summary.csv) | Raw frozen-test performance for every Stage 7 candidate |
-| [`results/stage7/stage7_control_adjusted_results.csv`](results/stage7/stage7_control_adjusted_results.csv) | Candidate lift after matching random-direction controls |
-| [`results/stage7/stage7_context_best_map.csv`](results/stage7/stage7_context_best_map.csv) | Train-fitted market-context to best-primitive map |
-| [`results/stage7/stage7_primitive_context_profile.csv`](results/stage7/stage7_primitive_context_profile.csv) | Per-context primitive scoring table |
-| [`results/stage7/stage7_manifest.json`](results/stage7/stage7_manifest.json) | Frozen split, source artifact, methodology guards, and output contract |
-| [`results/stage7/STAGE7_CODE_SANITY_AUDIT.md`](results/stage7/STAGE7_CODE_SANITY_AUDIT.md) | Implementation checks and leakage guards |
-| [`scripts/plot_stage7_contextual_results.py`](scripts/plot_stage7_contextual_results.py) | Rebuilds the README figures from Stage 7 summary files |
-
-## What This Shows
-
-The primitive space is not only descriptive. It can be used as a control surface.
-
-The most important lesson is subtle: the best strategy is not "kill bad primitives". Some primitives are bad only when they appear in the wrong context. The better move is to ask:
-
-```text
-Which primitive should this market regime use right now?
-```
-
-Then either:
-
-- replace the current primitive with the context-best primitive; or
-- promote the currently useful primitive more strongly.
-
-## Limitations
-
-- This is a frozen-test counterfactual analysis, not a production trading system.
-- Random-direction controls also improve some metrics, so primitive-specific causal claims must be control-adjusted.
-- The frozen 2022-2023 split is stress-heavy, so the current evidence is strongest for stress-context behavior.
-- Full daily rollout logs are intentionally excluded from this repository because they are large and not needed for a resume-facing evidence package.
+Large behavior logs are excluded.
 
 ## Related Projects
 
 - CHRL model source: [`Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning`](https://github.com/Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning)
-- Earlier RL feature ablation project: [`Sqaard/RL-based-Feature-Ablation`](https://github.com/Sqaard/RL-based-Feature-Ablation)
+- Main Stage 7 branch: `main`

@@ -1,0 +1,82 @@
+{
+  "model": "R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "source_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "output_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "primary_sequence": "fold_2021 train+validation daily internal rows, one code per date",
+  "hidden_alignment": "Policy hidden state is extracted once per env macro-step and broadcast to daily rows emitted by that macro-step.",
+  "window_length": 17,
+  "selected_k": 8,
+  "candidate_k": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "folds": [
+    {
+      "zip": "stage0_1_job_210_R6c_v1_fold_2018_results.zip",
+      "fold": {
+        "fold": "fold_2018",
+        "train_start": "2010-01-04",
+        "train_end_inclusive": "2017-12-29",
+        "validation_start": "2018-01-02",
+        "validation_end_inclusive": "2018-12-31",
+        "selection_metric": "mean_validation_sharpe_minus_stability_penalty",
+        "frozen_test_start": "2022-01-03",
+        "frozen_test_end_exclusive": "2023-03-01"
+      },
+      "variant": "R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1"
+    },
+    {
+      "zip": "stage0_1_job_211_R6c_v1_fold_2019_results.zip",
+      "fold": {
+        "fold": "fold_2019",
+        "train_start": "2010-01-04",
+        "train_end_inclusive": "2018-12-31",
+        "validation_start": "2019-01-02",
+        "validation_end_inclusive": "2019-12-31",
+        "selection_metric": "mean_validation_sharpe_minus_stability_penalty",
+        "frozen_test_start": "2022-01-03",
+        "frozen_test_end_exclusive": "2023-03-01"
+      },
+      "variant": "R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1"
+    },
+    {
+      "zip": "stage0_1_job_212_R6c_v1_fold_2020_results.zip",
+      "fold": {
+        "fold": "fold_2020",
+        "train_start": "2010-01-04",
+        "train_end_inclusive": "2019-12-31",
+        "validation_start": "2020-01-02",
+        "validation_end_inclusive": "2020-12-31",
+        "selection_metric": "mean_validation_sharpe_minus_stability_penalty",
+        "frozen_test_start": "2022-01-03",
+        "frozen_test_end_exclusive": "2023-03-01"
+      },
+      "variant": "R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1"
+    },
+    {
+      "zip": "stage0_1_job_213_R6c_v1_fold_2021_results.zip",
+      "fold": {
+        "fold": "fold_2021",
+        "train_start": "2010-01-04",
+        "train_end_inclusive": "2020-12-31",
+        "validation_start": "2021-01-04",
+        "validation_end_inclusive": "2021-12-31",
+        "selection_metric": "mean_validation_sharpe_minus_stability_penalty",
+        "frozen_test_start": "2022-01-03",
+        "frozen_test_end_exclusive": "2023-03-01"
+      },
+      "variant": "R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1"
+    }
+  ],
+  "outputs": {
+    "train_codes": "train_codes.parquet",
+    "code_summary": "code_summary.csv",
+    "stage1_metrics": "stage1_metrics.csv",
+    "behavior_log_daily": "behavior_log_daily.parquet",
+    "code_behavior_summary": "code_behavior_summary.csv",
+    "hidden_package": "r6c_stage1_hidden_state_package.npz"
+  }
+}

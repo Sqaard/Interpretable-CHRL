@@ -1,0 +1,2 @@
+K,best_val_recon,best_epoch,utilization,perplexity,recon_mse_normalized,var_h,recon_over_var,median_run_length,cross_fold_nmi,source
+8,0.8045614957809448,,1.0,6.913561829748934,0.8045614957809448,1.0014244318008423,0.8034170829386671,18.0,0.6337735183019049,windowed_kmeans_vq_r6c
