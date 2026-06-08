@@ -1,0 +1,49 @@
+{
+  "stage": "stage6b_v2_counterfactual_portfolio_rollout",
+  "fold": "fold_2021",
+  "split": "frozen_test",
+  "source_zip": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1\\stage0_1_job_213_R6c_v1_fold_2021_results.zip",
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "stage4_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "stage55_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage5_5\\R6c_stage55_code4_allsource_len1_3_5_10_20",
+  "context_cache": "",
+  "context_cache_loaded": false,
+  "out_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage6b_v2\\R6c_stage6b_v2_code4_context_adapter_frozen2022_2023",
+  "adapter_epochs": 180,
+  "adapter_lr": 0.001,
+  "max_candidates": 2,
+  "max_macro_steps": null,
+  "smoke_test": false,
+  "n_variants": 15,
+  "n_daily_rows": 4335,
+  "n_macro_rows": 975,
+  "hidden_dim": 64,
+  "market_cols": [
+    "market_feature_Regime_0_Prob",
+    "market_feature_Regime_1_Prob",
+    "market_feature_regime_entropy",
+    "market_feature_SP500_Trend",
+    "market_feature_VIX",
+    "market_feature_VIX_change_5d",
+    "market_feature_turbulence",
+    "market_feature_universe_return_20d"
+  ],
+  "methodology_guards": [
+    "learned_context adapters exclude target_alpha and hawkes_state",
+    "online learned_context features use current hidden/code/market/source_prob only",
+    "returns, cash, turnover, and drawdown are recomputed by env.step",
+    "random-label and no-bad controls are included",
+    "oracle/manual schedule variants are baselines, not causal claims"
+  ],
+  "outputs": [
+    "stage6b_counterfactual_daily.csv",
+    "stage6b_counterfactual_macro.csv",
+    "stage6b_counterfactual_summary.csv",
+    "stage6b_adapter_specs.csv",
+    "stage6b_strict_stage55_inputs.csv",
+    "STAGE6B_COUNTERFACTUAL_ROLLOUT.md",
+    "STAGE6B_CODE_SANITY_AUDIT.md",
+    "stage6b_manifest.json"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "stage": "stage6_primitive_aware_adapter_validation",
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "stage4_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "stage5_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage5\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage5_one_step",
+  "stage55_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage5_5\\R6c_stage55_code4_allsource_len1_3_5_10_20",
+  "stage0_results_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "out_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage6_v2\\R6c_stage6_v2_code4_context_adapter",
+  "n_rows": 3003,
+  "n_strict_stage55_candidates": 2,
+  "n_window_rows": 196,
+  "n_window_summary_rows": 56,
+  "n_stage6_event_pass_candidates": 16,
+  "n_stage6_holdout_pass_candidates": 8,
+  "n_random_label_holdout_pass_candidates": 0,
+  "n_no_bad_penalty_holdout_pass_candidates": 2,
+  "n_learned_no_bad_holdout_pass_candidates": 0,
+  "n_oracle_no_bad_holdout_pass_candidates": 2,
+  "n_learned_context_holdout_pass_candidates": 2,
+  "n_oracle_schedule_holdout_pass_candidates": 2,
+  "official_validation_source_code_4_count": 0,
+  "adapter_epochs": 220,
+  "adapter_lr": 0.001,
+  "interpretation_contract": "stage6_v2 separates manual schedule, oracle schedule adapter, and honest context adapter; adapter validation only; no counterfactual portfolio PnL claim",
+  "methodology_guards": [
+    "learned_context adapters exclude target_alpha and hawkes_state",
+    "scalers fit on adapter_train only",
+    "blocked adapter_holdout source windows are reported separately",
+    "no_bad and random_label controls are mandatory"
+  ],
+  "outputs": [
+    "stage6_adapter_row_summary.csv",
+    "stage6_adapter_window_responses.csv",
+    "stage6_adapter_window_summary.csv",
+    "stage6_adapter_loss_history.csv",
+    "stage6_adapter_specs.csv",
+    "stage6_strict_stage55_inputs.csv",
+    "STAGE6_PRIMITIVE_ADAPTER_VALIDATION.md",
+    "STAGE6_CODE_SANITY_AUDIT.md",
+    "stage6_manifest.json"
+  ]
+}
