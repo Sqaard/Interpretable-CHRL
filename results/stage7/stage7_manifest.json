@@ -1,0 +1,82 @@
+{
+  "stage": "stage7_contextual_primitive_replacement",
+  "fold": "fold_2021",
+  "split": "frozen_test",
+  "source_zip": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1\\stage0_1_job_213_R6c_v1_fold_2021_results.zip",
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "stage4_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "stage0_results_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "out_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage7\\R6c_stage7_contextual_primitive_replacement_frozen2022_2023",
+  "eta0": 1.0,
+  "max_macro_steps": null,
+  "n_variants": 43,
+  "n_daily_rows": 12427,
+  "n_macro_rows": 2810,
+  "hidden_dim": 64,
+  "global_best_codes": [
+    1,
+    7,
+    2,
+    5,
+    0,
+    3,
+    4,
+    6
+  ],
+  "context_best_code": {
+    "bull_trend": 2,
+    "calm_hold": 1,
+    "choppy_rotation": 1,
+    "recovery": 1,
+    "stress": 7
+  },
+  "dominant_context_by_code": {
+    "0": "stress",
+    "1": "stress",
+    "2": "calm_hold",
+    "3": "stress",
+    "4": "stress",
+    "5": "stress",
+    "6": "stress",
+    "7": "stress"
+  },
+  "market_cols": [
+    "market_feature_Regime_0_Prob",
+    "market_feature_Regime_1_Prob",
+    "market_feature_regime_entropy",
+    "market_feature_SP500_Trend",
+    "market_feature_VIX",
+    "market_feature_VIX_change_5d",
+    "market_feature_turbulence",
+    "market_feature_universe_return_5d",
+    "market_feature_universe_return_20d",
+    "market_feature_residual_universe_return_5d",
+    "market_feature_residual_universe_return_20d",
+    "market_feature_residual_breadth_5d",
+    "market_feature_residual_breadth_20d",
+    "market_feature_residual_dispersion_5d",
+    "market_feature_vix_surprise_5d"
+  ],
+  "methodology_guards": [
+    "PPO and environment are frozen",
+    "every candidate is evaluated through real env.step",
+    "context-best primitive mapping is train-only",
+    "frozen rollout uses only current pre-action hidden and market features",
+    "Stage 7 does not use future returns, target alpha, or Stage 5.5 schedules",
+    "random-direction context schedule control is included"
+  ],
+  "outputs": [
+    "stage7_counterfactual_daily.csv",
+    "stage7_counterfactual_macro.csv",
+    "stage7_counterfactual_summary.csv",
+    "stage7_control_adjusted_results.csv",
+    "stage7_adapter_specs.csv",
+    "stage7_primitive_context_profile.csv",
+    "stage7_context_best_map.csv",
+    "stage7_primitive_dominant_context.csv",
+    "STAGE7_CONTEXTUAL_PRIMITIVE_REPLACEMENT.md",
+    "STAGE7_CODE_SANITY_AUDIT.md",
+    "stage7_manifest.json"
+  ]
+}
