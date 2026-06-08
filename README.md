@@ -81,18 +81,19 @@ flowchart LR
     G --> H["Return, Sharpe, drawdown, controls"]
 ```
 
-The current Stage 7 experiment has two intervention families:
+The current Stage 7 experiment has two intervention families plus matched controls:
 
-| Stage | Question | Example |
-|---|---|---|
-| Stage 7a | Should a source primitive be replaced by a better primitive? | `code3 -> context-best` |
-| Stage 7b | Should a good primitive be promoted only in the context where it is useful? | `promote code4 in own context` |
+| Family | Question | How the intervention is triggered | Example | Matched control |
+|---|---|---|---|---|
+| Stage 7a: replacement | Should a source primitive be moved toward a better primitive? | Trigger only when the frozen policy naturally enters the source primitive | `code3 -> context-best` | Same trigger schedule, random hidden direction |
+| Stage 7b: promotion | Should a useful primitive be strengthened in the market context where it belongs? | Trigger when the current market context matches the primitive's train-dominant context | `promote code4 in own context` | Same context schedule, random hidden direction |
+| Stage 7b: context-best promotion | Should the train-best primitive for the current regime be promoted directly? | Trigger when the current primitive differs from the train-best primitive for that context | `promote context-best` | Same context-best schedule, random hidden direction |
 
 All Stage 7 candidates are evaluated through the real frozen environment step, not by estimating returns from logs.
 
 ## Evidence Files
 
-The repository keeps only compact evidence, not the full 200 MB daily counterfactual logs.
+The repository keeps compact evidence only. The full `stage7_counterfactual_daily.csv` file is about 200 MB and is intentionally excluded; it can be regenerated from the source project, but it is not needed for this resume-facing evidence package.
 
 | File | Purpose |
 |---|---|
@@ -100,6 +101,7 @@ The repository keeps only compact evidence, not the full 200 MB daily counterfac
 | [`results/stage7/stage7_control_adjusted_results.csv`](results/stage7/stage7_control_adjusted_results.csv) | Candidate lift after matching random-direction controls |
 | [`results/stage7/stage7_context_best_map.csv`](results/stage7/stage7_context_best_map.csv) | Train-fitted market-context to best-primitive map |
 | [`results/stage7/stage7_primitive_context_profile.csv`](results/stage7/stage7_primitive_context_profile.csv) | Per-context primitive scoring table |
+| [`results/stage7/stage7_manifest.json`](results/stage7/stage7_manifest.json) | Frozen split, source artifact, methodology guards, and output contract |
 | [`results/stage7/STAGE7_CODE_SANITY_AUDIT.md`](results/stage7/STAGE7_CODE_SANITY_AUDIT.md) | Implementation checks and leakage guards |
 | [`scripts/plot_stage7_contextual_results.py`](scripts/plot_stage7_contextual_results.py) | Rebuilds the README figures from Stage 7 summary files |
 
