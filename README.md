@@ -1,133 +1,32 @@
-# Interpretable CHRL
+# Stage 3: Mechanism Labeling
 
-Self-supervised strategy discovery and hidden-state intervention for a constrained hierarchical reinforcement-learning trading policy.
+Stage 3 converts primitive clusters into human-readable trading mechanisms using multiple weak labeling views.
 
-The policy used here is the **CHRL model** produced in [`Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning`](https://github.com/Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning). This repository focuses on the interpretation layer: discovering strategy primitives, mapping them to market regimes, and testing whether primitive-level interventions can improve a frozen out-of-sample rollout.
+## Result
 
-## Abstract
+![Stage 3 mechanism heatmap](docs/assets/stage3/stage3_mechanism_score_heatmap.png)
 
-Most RL trading policies are hard to explain because the actual decision is buried inside hidden states. I treated the policy hidden state as a behavioral space, discovered recurring strategy primitives with self-supervised clustering, and then tested whether those primitives are merely descriptive or actually controllable.
+## Primitive Labels
 
-The strongest result is that primitive-aware hidden-state editing can improve a frozen 2022-2023 rollout without retraining the PPO model. The best control-adjusted intervention was:
-
-```text
-Replace code 3 with the best primitive for the current market context
-Control-adjusted final return lift: +0.302 percentage points
-Control-adjusted Sharpe lift:       +0.030
-```
-
-The result is intentionally reported with random-direction controls. The goal is not to claim magic latent steering, but to separate real primitive effects from the fact that any hidden-state edit can sometimes move the portfolio.
-
-## Current Results
-
-![Stage 7 counterfactual results](docs/assets/stage7_contextual/stage7a_stage7b_counterfactual_results.png)
-
-| Candidate | Idea | Raw final return lift | Control-adjusted lift | Sharpe lift |
-|---|---:|---:|---:|---:|
-| `stage7a_replace_code3_to_context_best` | Replace a stress-like primitive with the train-best primitive for the current context | +0.421 pp | **+0.302 pp** | +0.039 |
-| `stage7a_replace_code3_to_global_code1` | Replace code 3 with the globally strong baseline-hold primitive | +0.392 pp | +0.273 pp | +0.037 |
-| `stage7b_promote_code4_in_own_context` | Promote active-trading behavior only in its own context | **+0.540 pp** | +0.263 pp | **+0.049** |
-| `stage7b_promote_code5_in_own_context` | Promote group-rotation behavior in its own context | +0.355 pp | +0.123 pp | +0.034 |
-
-Key interpretation:
-
-- Code 3 appears to be replaceable in stress-like frozen-test windows.
-- Code 4 is not simply a "bad primitive". It can help when promoted in the right context.
-- Context-aware replacement beats naive suppression as an interpretation-and-control mechanism.
-- Random controls still explain part of the lift, so the causal claim is deliberately conservative.
-
-## Best Primitive by Market Context
-
-The context map is fitted on train rows only, then evaluated on the frozen 2022-2023 rollout.
-
-| Market context | Selected primitive | Interpretation |
-|---|---:|---|
-| `bull_trend` | code 2 | momentum / risk-on behavior |
-| `calm_hold` | code 1 | baseline holding behavior |
-| `choppy_rotation` | code 1 | stable hold beats noisy rotation in train scoring |
-| `recovery` | code 1 | baseline hold was the safest train winner |
-| `stress` | code 7 | risk-on recovery / top-k reopening behavior |
-
-### Bull Trend
-
-![Bull trend primitive scores](docs/assets/stage7_contextual/stage7_context_bull_trend_primitive_scores.png)
-
-### Calm Hold
-
-![Calm hold primitive scores](docs/assets/stage7_contextual/stage7_context_calm_hold_primitive_scores.png)
-
-### Choppy Rotation
-
-![Choppy rotation primitive scores](docs/assets/stage7_contextual/stage7_context_choppy_rotation_primitive_scores.png)
-
-### Recovery
-
-![Recovery primitive scores](docs/assets/stage7_contextual/stage7_context_recovery_primitive_scores.png)
-
-### Stress
-
-![Stress primitive scores](docs/assets/stage7_contextual/stage7_context_stress_primitive_scores.png)
-
-## Method
-
-```mermaid
-flowchart LR
-    A["Frozen CHRL rollout"] --> B["Policy hidden states"]
-    B --> C["Primitive discovery"]
-    C --> D["Behavioral labels from portfolio logs"]
-    D --> E["Market-context map"]
-    E --> F["Primitive replacement / promotion"]
-    F --> G["Frozen counterfactual env rollout"]
-    G --> H["Return, Sharpe, drawdown, controls"]
-```
-
-The current Stage 7 experiment has two intervention families plus matched controls:
-
-| Family | Question | How the intervention is triggered | Example | Matched control |
-|---|---|---|---|---|
-| Stage 7a: replacement | Should a source primitive be moved toward a better primitive? | Trigger only when the frozen policy naturally enters the source primitive | `code3 -> context-best` | Same trigger schedule, random hidden direction |
-| Stage 7b: promotion | Should a useful primitive be strengthened in the market context where it belongs? | Trigger when the current market context matches the primitive's train-dominant context | `promote code4 in own context` | Same context schedule, random hidden direction |
-| Stage 7b: context-best promotion | Should the train-best primitive for the current regime be promoted directly? | Trigger when the current primitive differs from the train-best primitive for that context | `promote context-best` | Same context-best schedule, random hidden direction |
-
-All Stage 7 candidates are evaluated through the real frozen environment step, not by estimating returns from logs.
+| code_id | final_label | label_strength | method_agreement_count | top_mechanisms | rationale |
+| --- | --- | --- | --- | --- | --- |
+| 0 | risk_off_deleveraging | strong | 4 | volatility_targeting:0.547; risk_off_deleveraging:0.520; forced_liquidation_stop_loss:0.510 | cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482 |
+| 1 | baseline_hold | strong | 3 | baseline_hold:0.554; short_term_reversal_recovery:0.532; momentum_trend_following:0.505 | cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333 |
+| 2 | momentum_trend_following | strong | 3 | baseline_hold:0.496; momentum_trend_following:0.488; crowding_or_concentration:0.429 | cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070 |
+| 3 | risk_off_deleveraging | strong | 5 | volatility_targeting:0.736; risk_off_deleveraging:0.731; liquidity_or_stress_sensitive_execution:0.654 | cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987 |
+| 4 | active_trading | strong | 4 | execution_metaorder_artifact:0.728; active_trading:0.705; calendar_rebalancing:0.682 | cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194 |
+| 5 | sector_or_group_rotation | strong | 3 | execution_metaorder_artifact:0.899; active_trading:0.805; sector_or_group_rotation:0.776 | cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387 |
+| 6 | baseline_hold | tentative | 2 | short_term_reversal_recovery:0.556; active_trading:0.553; sector_or_group_rotation:0.532 | cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250 |
+| 7 | momentum_trend_following | strong | 4 | short_term_reversal_recovery:0.838; crowding_or_concentration:0.806; momentum_trend_following:0.782 | cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498 |
 
 ## Evidence Files
 
-The repository keeps compact evidence only. The full `stage7_counterfactual_daily.csv` file is about 200 MB and is intentionally excluded; it can be regenerated from the source project, but it is not needed for this resume-facing evidence package.
-
-| File | Purpose |
-|---|---|
-| [`results/stage7/stage7_counterfactual_summary.csv`](results/stage7/stage7_counterfactual_summary.csv) | Raw frozen-test performance for every Stage 7 candidate |
-| [`results/stage7/stage7_control_adjusted_results.csv`](results/stage7/stage7_control_adjusted_results.csv) | Candidate lift after matching random-direction controls |
-| [`results/stage7/stage7_context_best_map.csv`](results/stage7/stage7_context_best_map.csv) | Train-fitted market-context to best-primitive map |
-| [`results/stage7/stage7_primitive_context_profile.csv`](results/stage7/stage7_primitive_context_profile.csv) | Per-context primitive scoring table |
-| [`results/stage7/stage7_manifest.json`](results/stage7/stage7_manifest.json) | Frozen split, source artifact, methodology guards, and output contract |
-| [`results/stage7/STAGE7_CODE_SANITY_AUDIT.md`](results/stage7/STAGE7_CODE_SANITY_AUDIT.md) | Implementation checks and leakage guards |
-| [`scripts/plot_stage7_contextual_results.py`](scripts/plot_stage7_contextual_results.py) | Rebuilds the README figures from Stage 7 summary files |
-
-## What This Shows
-
-The primitive space is not only descriptive. It can be used as a control surface.
-
-The most important lesson is subtle: the best strategy is not "kill bad primitives". Some primitives are bad only when they appear in the wrong context. The better move is to ask:
-
-```text
-Which primitive should this market regime use right now?
-```
-
-Then either:
-
-- replace the current primitive with the context-best primitive; or
-- promote the currently useful primitive more strongly.
-
-## Limitations
-
-- This is a frozen-test counterfactual analysis, not a production trading system.
-- Random-direction controls also improve some metrics, so primitive-specific causal claims must be control-adjusted.
-- The frozen 2022-2023 split is stress-heavy, so the current evidence is strongest for stress-context behavior.
-- Full daily rollout logs are intentionally excluded from this repository because they are large and not needed for a resume-facing evidence package.
+- `results/stage3/primitive_labels.csv`
+- `results/stage3/mechanism_scores.csv`
+- `results/stage3/label_uncertainty.csv`
+- `results/stage3/STAGE3_R6C_MECHANISM_LABELING.md`
 
 ## Related Projects
 
 - CHRL model source: [`Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning`](https://github.com/Sqaard/CHRL-Constrained-Hierarchical-Reinforcement-Learning)
-- Earlier RL feature ablation project: [`Sqaard/RL-based-Feature-Ablation`](https://github.com/Sqaard/RL-based-Feature-Ablation)
+- Main Stage 7 branch: `main`

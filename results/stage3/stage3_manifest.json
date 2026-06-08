@@ -1,0 +1,16 @@
+{
+  "stage1_audit_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1_methodology_audit",
+  "stage2_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage2\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage2_kmeans",
+  "out_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "outputs": [
+    "primitive_labels.csv",
+    "mechanism_scores.csv",
+    "label_uncertainty.csv",
+    "STAGE3_R6C_MECHANISM_LABELING.md"
+  ],
+  "method_caveats": [
+    "RBSA uses local proxy labels; external factor-return panel is not available.",
+    "TCAV is a behavior-concept proxy, not a full hidden-direction TCAV intervention.",
+    "News/LLM event layer is not active."
+  ]
+}

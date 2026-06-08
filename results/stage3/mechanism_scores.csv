@@ -1,0 +1,97 @@
+code_id,mechanism,score,evidence
+0,volatility_targeting,0.5465148346311736,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,risk_off_deleveraging,0.520223838829518,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,forced_liquidation_stop_loss,0.5103124045076121,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,liquidity_or_stress_sensitive_execution,0.5089143214383205,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,baseline_hold,0.47593313087602623,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,execution_metaorder_artifact,0.42771205272609764,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,short_term_reversal_recovery,0.4085932438326528,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,calendar_rebalancing,0.3991153896333808,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482; month_end_rate=0.038
+0,active_trading,0.37407523561981043,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,sector_or_group_rotation,0.3711762478761019,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,momentum_trend_following,0.3510702515595366,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+0,crowding_or_concentration,0.3498051065824445,cash=0.187; q=0.813; stress=0.474; recovery=0.462; turnover=0.0017; VIX=-0.170; SP500Trend=-0.219; residual20=-0.482
+1,baseline_hold,0.5541784664395909,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,short_term_reversal_recovery,0.5322975308361115,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,momentum_trend_following,0.5053992273382416,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,execution_metaorder_artifact,0.4379608941536715,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,calendar_rebalancing,0.3923651217898586,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333; month_end_rate=0.030
+1,liquidity_or_stress_sensitive_execution,0.38141882612537864,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,volatility_targeting,0.3727786184234168,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,crowding_or_concentration,0.3586124665915964,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,risk_off_deleveraging,0.3577693206781552,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,forced_liquidation_stop_loss,0.351222823996626,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,active_trading,0.3362340143707228,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+1,sector_or_group_rotation,0.32285741941613816,cash=0.178; q=0.822; stress=0.428; recovery=0.538; turnover=0.0016; VIX=-0.601; SP500Trend=0.280; residual20=0.333
+2,baseline_hold,0.49558639701573065,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,momentum_trend_following,0.48763632521780087,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,crowding_or_concentration,0.4289014762905808,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,short_term_reversal_recovery,0.4091511689377783,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,liquidity_or_stress_sensitive_execution,0.4056690763828962,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,forced_liquidation_stop_loss,0.4051531638152689,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,volatility_targeting,0.387507344518038,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,execution_metaorder_artifact,0.38060086790473885,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,calendar_rebalancing,0.36912161559180645,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070; month_end_rate=0.032
+2,risk_off_deleveraging,0.3207674829514372,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,active_trading,0.2969895932549088,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+2,sector_or_group_rotation,0.2860751254286184,cash=0.151; q=0.849; stress=0.451; recovery=0.504; turnover=0.0012; VIX=-0.912; SP500Trend=0.436; residual20=0.070
+3,volatility_targeting,0.7357302408072588,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,risk_off_deleveraging,0.7313858303728004,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,liquidity_or_stress_sensitive_execution,0.6541358006236226,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,forced_liquidation_stop_loss,0.5452368119318516,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,calendar_rebalancing,0.4103295603654732,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987; month_end_rate=0.040
+3,crowding_or_concentration,0.4007810661378832,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,baseline_hold,0.38094221521176663,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,short_term_reversal_recovery,0.3570160968125604,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,sector_or_group_rotation,0.3336192029297682,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,execution_metaorder_artifact,0.2773364132717908,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,momentum_trend_following,0.2593934452604914,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+3,active_trading,0.2559053781860882,cash=0.208; q=0.792; stress=0.493; recovery=0.439; turnover=0.0018; VIX=1.625; SP500Trend=-1.414; residual20=-0.987
+4,execution_metaorder_artifact,0.7279151559803884,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,active_trading,0.7045690109021991,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,calendar_rebalancing,0.6824377533759851,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194; month_end_rate=0.035
+4,sector_or_group_rotation,0.6452384865741159,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,liquidity_or_stress_sensitive_execution,0.6146412038712332,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,momentum_trend_following,0.5684194796492013,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,forced_liquidation_stop_loss,0.5475728388069276,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,crowding_or_concentration,0.5356199573837678,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,volatility_targeting,0.48889848863557506,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,short_term_reversal_recovery,0.4493905773896093,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,risk_off_deleveraging,0.4111312778387261,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+4,baseline_hold,0.2991843822713034,cash=0.155; q=0.845; stress=0.452; recovery=0.505; turnover=0.0060; VIX=0.126; SP500Trend=0.683; residual20=0.194
+5,execution_metaorder_artifact,0.8993436220877989,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,active_trading,0.8051599336968228,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,sector_or_group_rotation,0.7755219719395633,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,risk_off_deleveraging,0.7124613509758404,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,forced_liquidation_stop_loss,0.7010789327371725,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,calendar_rebalancing,0.6820867274997943,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387; month_end_rate=0.029
+5,volatility_targeting,0.6719658778259635,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,liquidity_or_stress_sensitive_execution,0.6310160693809653,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,crowding_or_concentration,0.5805330591797355,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,momentum_trend_following,0.51027329351443,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,short_term_reversal_recovery,0.3852390792126801,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+5,baseline_hold,0.26665476126697407,cash=0.209; q=0.791; stress=0.458; recovery=0.476; turnover=0.0060; VIX=0.592; SP500Trend=1.409; residual20=-0.387
+6,short_term_reversal_recovery,0.5563528648548778,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,active_trading,0.552999030661743,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,sector_or_group_rotation,0.5316872812015601,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,momentum_trend_following,0.524875569731277,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,risk_off_deleveraging,0.5175659324191333,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,crowding_or_concentration,0.4994862808975581,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,calendar_rebalancing,0.4989471780849004,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250; month_end_rate=0.026
+6,forced_liquidation_stop_loss,0.49498291743892436,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,volatility_targeting,0.4942657487437318,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,execution_metaorder_artifact,0.48485581511936016,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,liquidity_or_stress_sensitive_execution,0.4367987769453402,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+6,baseline_hold,0.3861288379244751,cash=0.205; q=0.795; stress=0.414; recovery=0.553; turnover=0.0032; VIX=0.413; SP500Trend=-0.541; residual20=0.250
+7,short_term_reversal_recovery,0.8375835560657273,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,crowding_or_concentration,0.8059967801331982,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,momentum_trend_following,0.7816383687471457,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,execution_metaorder_artifact,0.7191588754799868,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,sector_or_group_rotation,0.7128727545311393,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,active_trading,0.650928302736982,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,calendar_rebalancing,0.555478016399209,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498; month_end_rate=0.034
+7,forced_liquidation_stop_loss,0.43825864891600363,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,risk_off_deleveraging,0.4095880004570281,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,liquidity_or_stress_sensitive_execution,0.3642931430356762,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,volatility_targeting,0.29273997630987575,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
+7,baseline_hold,0.17357857666586707,cash=0.118; q=0.882; stress=0.321; recovery=0.691; turnover=0.0040; VIX=2.762; SP500Trend=-1.819; residual20=1.498
