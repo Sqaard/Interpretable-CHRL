@@ -1,0 +1,31 @@
+{
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage2_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage2\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage2_kmeans",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "out_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "rows": 3003,
+  "outputs": [
+    "stage4_joined_daily.csv",
+    "primitive_return_decomposition.csv",
+    "primitive_ppo_diagnostics.csv",
+    "primitive_mechanism_status.csv",
+    "primitive_finance_safe_validation.csv",
+    "primitive_stage4_summary.csv",
+    "exact_training_ppo_diagnostics_by_fold.csv",
+    "exact_training_ppo_update_diagnostics.csv",
+    "exact_training_ppo_availability.csv",
+    "STAGE4_R6C_OUTCOME_PPO_DIAGNOSTICS.md"
+  ],
+  "exact_ppo_fields_available": {
+    "entropy": true,
+    "logprob": true,
+    "value": true,
+    "training_advantage": true,
+    "training_approx_kl": true,
+    "training_clip_fraction": true,
+    "daily_primitive_joined_training_advantage": false,
+    "daily_primitive_joined_training_approx_kl": false,
+    "daily_primitive_joined_training_clip_fraction": false
+  },
+  "exact_training_ppo_grain": "macro-rollout sample/update; undated for event-triggered K-window"
+}
