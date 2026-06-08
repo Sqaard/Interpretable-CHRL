@@ -1,0 +1,9 @@
+source_code,final_label,stage4_status,num_arms_tested,any_proxy_stage55_eligible,any_exact_stage55_eligible,recommended_next_step,best_proxy_arm,best_proxy_target_code,best_proxy_eta,best_proxy_status,best_proxy_ood_max_p95_pct,best_proxy_action_l1_p95
+0,risk_off_deleveraging,PROTECTIVE_RISK_MECHANISM,45,False,False,do_not_intervene,hidden_direction,1,1.0,descriptive_only_or_unsafe,0.9500499500499501,0.011073536330452615
+1,baseline_hold,GOOD_MECHANISM,33,False,False,do_not_intervene,input_level,2,0.25,descriptive_only_or_unsafe,0.9237429237429238,0.000959860160946846
+2,momentum_trend_following,GOOD_MECHANISM,33,True,True,eligible_for_stage55_window_audit,input_level,,1.0,exact_one_step_pass,0.942057942057942,0.013009881600737572
+3,risk_off_deleveraging,PROTECTIVE_RISK_MECHANISM,45,True,True,eligible_for_stage55_window_audit,hidden_direction,,1.0,exact_one_step_pass,0.9790209790209791,0.012615088131310445
+4,active_trading,EXECUTION_ARTIFACT,45,True,True,eligible_for_stage55_window_audit,input_level,,1.0,exact_one_step_pass,0.9617049617049617,0.010540544986724854
+5,sector_or_group_rotation,GOOD_MECHANISM,45,False,False,do_not_intervene,hidden_subspace,,1.0,descriptive_only_or_unsafe,0.9823509823509824,0.01162351708165053
+6,baseline_hold,UNINTERPRETABLE,45,False,False,do_not_intervene,hidden_direction,,1.0,descriptive_only_or_unsafe,0.9686979686979686,0.00938343877818799
+7,momentum_trend_following,GOOD_MECHANISM,33,False,False,do_not_intervene,hidden_subspace,,0.25,descriptive_only_or_unsafe,0.9983349983349983,0.002288632415024826

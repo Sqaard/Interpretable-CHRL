@@ -1,0 +1,67 @@
+{
+  "stage": "stage5_one_step_causal_audit",
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage1_npz": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1\\r6c_stage1_hidden_state_package.npz",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "stage4_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "stage0_results_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "out_dir": "artifacts\\stage5\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage5_one_step_all_codes",
+  "rows": 3003,
+  "codes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "eta_grid": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "source_code_mode": "all",
+  "target_code_mode": "good_top3",
+  "source_codes_tested": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "target_codes_tested": [
+    1,
+    7,
+    2
+  ],
+  "exact_policy_forward_available": true,
+  "policy_forward_reproduction_gate_pass": true,
+  "compatibility_contract": {
+    "requires_stage1_npz": true,
+    "requires_stage3_labels": true,
+    "requires_stage4_summary": true,
+    "future_policy_forward_hook_optional": true,
+    "input_level_policy_forward_supported": true,
+    "ood_metrics": [
+      "mahalanobis",
+      "knn_distance",
+      "pca_reconstruction_error",
+      "autoencoder_reconstruction_error",
+      "negative_log_density"
+    ]
+  },
+  "outputs": [
+    "stage5_intervention_arms.csv",
+    "stage5_gate_decisions.csv",
+    "stage5_decoder_diagnostics.csv",
+    "stage5_policy_forward_diagnostics.csv",
+    "stage5_ood_reference_distribution.csv",
+    "stage5_primitive_directions.csv",
+    "STAGE5_ONE_STEP_CAUSAL_AUDIT.md"
+  ]
+}

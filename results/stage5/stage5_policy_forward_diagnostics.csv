@@ -1,0 +1,11 @@
+metric,value
+exact_policy_forward_available,1.0
+natural_action_l1_mean,4.162388545768959e-08
+natural_action_l1_p95,1.3224780559539795e-07
+natural_raw_action_l2_mean,5.219158921330712e-07
+natural_raw_action_l2_p95,1.4382599993082805e-06
+natural_logprob_abs_diff_mean,1.1737530048076924e-06
+natural_logprob_abs_diff_p95,7.62939453125e-06
+natural_entropy_abs_diff_mean,9.349374583749584e-07
+natural_entropy_abs_diff_p95,7.62939453125e-06
+reproduction_gate_pass,1.0

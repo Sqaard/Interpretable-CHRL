@@ -1,0 +1,28 @@
+{
+  "stage": "stage55_sequential_response_audit",
+  "stage1_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage1",
+  "stage3_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage3\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage3_kmeans",
+  "stage4_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage4\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage4_kmeans",
+  "stage5_dir": "artifacts\\stage5\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage5_one_step_all_codes",
+  "stage0_results_dir": "C:\\Users\\ivanp\\RL for Time-Series Forecasting\\data_RLagent_for_Joseph\\artifacts\\stage0_1\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_rotation_internaldays_v1",
+  "out_dir": "artifacts\\stage5_5\\R6c_root_K20_stock_K5_PD_mild_slice_group_riskaware_top8_sell12_stage55_sequential_all_codes",
+  "lengths": [
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_eligible_arms": 7,
+  "n_window_rows": 4676,
+  "n_summary_rows": 672,
+  "n_broad_stage6_candidates": 310,
+  "n_strict_stage6_candidates": 2,
+  "outputs": [
+    "stage55_window_responses.csv",
+    "stage55_schedule_summary.csv",
+    "stage55_input_stage5_eligible_arms.csv",
+    "STAGE55_SEQUENTIAL_RESPONSE_AUDIT.md",
+    "stage55_manifest.json"
+  ],
+  "interpretation_contract": "impulse-response audit only; no counterfactual PnL claim"
+}
