@@ -37,7 +37,6 @@ What this means:
 - Both can be steered without retraining the original PPO policy.
 - Matched random controls are necessary because random latent edits can also move returns.
 
-Feynman summary:
 
 The model has two useful steering wheels. One controls the model's "mood" (`hidden state`), and one controls what its hands are about to do in the portfolio (`hidden action`). Both wheels work, but we still compare against random steering so we do not fool ourselves.
 
@@ -57,7 +56,6 @@ What this means:
 - The raw joint result is not automatically a causal proof, because one random-target control is even stronger.
 - This is why later stages focus on targeted, matched repairs instead of simply reporting the largest raw backtest lift.
 
-Feynman summary:
 
 One wheel tells us the strategy mode; the other tells us the actual trade shape. Turning both together is useful, but a lucky random nudge can also help. So the honest question becomes: which specific fixes still help after the random nudge test?
 
@@ -79,7 +77,6 @@ What this means:
 - Random repairs hurt the same baseline, while real repairs helped.
 - The repair value is therefore not just "more intervention"; it is intervention aimed at specific failure modes.
 
-Feynman summary:
 
 Do not just tell the child, "stop doing bad things." First show what to do in the current situation. Then, if one very specific mistake appears, fix exactly that mistake without changing the whole personality.
 
