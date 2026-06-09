@@ -1,0 +1,4 @@
+surface,candidate,mechanism,raw_return_pp,delta_sharpe,matched_control_pp,control_adjusted_pp
+Hidden state,promote code4 in its own context,contextual primitive promotion,0.5403582528404005,0.049159623284723196,0.277792439027158,0.2625658138132425
+Hidden state,replace code3 with context-best primitive,teacher-style primitive repair,0.42074380125435296,0.03923423152439728,0.11902163946808653,0.30172216178626643
+Hidden action,learned action adapter: promote context action,latent action primitive steering,0.3774906406173062,0.03554870110894663,0.11281676404457652,0.2646738765727297

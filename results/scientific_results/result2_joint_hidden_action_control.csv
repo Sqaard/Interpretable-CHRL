@@ -1,0 +1,4 @@
+candidate,type,raw_return_pp,delta_sharpe,note
+"hidden promote + action promote, 5-day duration",deployable joint intervention,0.4393920561307496,0.039832031470404275,best duration-based hidden/action combination
+"hidden promote + action promote, learned adapter",deployable joint adapter,0.43508113572715557,0.03951583770196908,neural adapter without target-alpha leakage
+random-target joint control,control / caution,0.5518249756773286,0.04892701234841819,strong control; raw joint lift is not enough for a causal claim

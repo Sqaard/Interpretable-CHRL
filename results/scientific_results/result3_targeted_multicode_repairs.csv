@@ -1,0 +1,5 @@
+candidate,role,raw_return_pp,delta_sharpe,incremental_pp,incremental_sharpe
+joint promote baseline,baseline,0.4293802604348862,0.04043578874478635,0.0,0.0
+joint promote + hidden code3 repair + action code43 repair,real repairs,0.5078252612288114,0.046015842991120944,0.07844500079392525,0.005580054246334593
+joint promote + both random repairs,random repairs,0.31582195159118864,0.030615687075382772,-0.11355830884369755,-0.009820101669403579
+real repairs minus both-random repair control,real - random value,,,0.1920033096376228,0.015400155915738171
