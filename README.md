@@ -38,7 +38,7 @@ What this means:
 - Matched random controls are necessary because random latent edits can also move returns.
 
 
-The model has two useful steering wheels. One controls the model's "mood" (`hidden state`), and one controls what its hands are about to do in the portfolio (`hidden action`). Both wheels work, but we still compare against random steering so we do not fool ourselves.
+The model has two useful steering wheels. One controls the model's "mood" (`hidden state`), and one controls what its hands are about to do in the portfolio (`hidden action`). 
 
 ## Result 2: Hidden State + Hidden Action Control Works Better Together
 
